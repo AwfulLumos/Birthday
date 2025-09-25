@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>My Birthday Gift</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="cutecat.gif" as="image">
+    <link rel="icon" type="image/gif" href="cutecat.gif">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-heart">💖</div>
+        <div class="loading-text">
+            <p>Preparing your special birthday surprise...</p>
+            <div class="loading-dots">
+                <span>.</span><span>.</span><span>.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles Container -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop preload="auto" playsinline>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Indicator -->
+    <div class="music-indicator" id="musicIndicator" style="display: none;">
+        <span class="music-note">🎵</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Guide Card -->
+        <div class="guide-card" id="guideCard">
+            <img src="cutecat.gif" alt="Cute Cat" class="cat-gif">
+            <p class="guide-animate">Tap the card to reveal your special birthday surprise! 💕</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="card-navigation" id="cardNavigation" style="display: none;">
+            <button class="nav-btn active" data-page="0">Card</button>
+            <button class="nav-btn" data-page="1">Timeline</button>
+            <button class="nav-btn" data-page="2">Surprise</button>
+        </div>
+
+        <!-- Card Pages Container -->
+        <div class="card-container">
+            <!-- Page 1: Main Birthday Card -->
+            <div class="birthday-card page active" id="page0">
+                <div class="container" id="greetingCard">
+                    <span class="rose">🌹</span>
+                    <h1 class="main-title">Happy Birthday, Mi Pez!</h1>
+                    <div class="card-inner" id="cardInner">
+                        <p class="hidden-message">
+                            Happy birthday NrnClrFcn! I just want to say thank you for letting me cross paths with you.
+                            Since our first meeting in May, my life has been brighter with you around. My sincerest wish
+                            is for you to enjoy a long, healthy life, and maybe ease up on the stubborn streak. May you
+                            reach your
+                            goals, celebrate every milestone, and discover your true potential. I hope you'll take care
+                            of
+                            yourself, because your well-being is so important—I want you to avoid any setbacks or
+                            negative vibes.
+                            <br><br>
+                            You're truly special to me, and I want you to know I'll always be in your corner (wao).
+                            Happy birthday ulit Mi Pez!
+                            <br><br>
+                            I know I'm not by your side right now, and I feel bad about that. But I want you to know
+                            this card is my
+                            first gift to you—and it's one of my most special gifts, because you're the first girl I've
+                            ever made
+                            something like this for. You mean a lot to me, and I hope this brings a smile to your day.
+                            <br><br>
+                            Even though we fight a lot, I want you to know I still care about you and love you. No
+                            matter what happens.
+                        </p>
+                    </div>s
+                    <div class="balloons" id="balloons">
+                        <span class="balloon">🎈</span>
+                        <span class="balloon">🎉</span>
+                        <span class="balloon">🎂</span>
+                    </div>
+                    <div class="from-to">
+                        <p><strong>From:</strong> VIF.Dev</p>
+                        <p><strong>To:</strong> Mi Pez</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: Special Surprise -->
+            <div class="surprise-page page" id="page4">
+                <div class="container">
+                    <h2>Special Surprise</h2>
+                    <div class="surprise-container">
+                        <img src="giftcat.gif" alt="Cute Cat Gift" class="cat-gift-img">
+                        <p class="surprise-text">Tap the cat to unwrap your surprise!</p>
+                        <div class="surprise-content" id="surpriseContent">
+                            <h3>My Promise to You</h3>
+                            <div class="promise-list">
+                                <p>To always be in your corner</p>
+                                <p>To celebrate your achievements</p>
+                                <p>To support your dreams</p>
+                                <p>To bring smiles to your days</p>
+                                <p>To care about your happiness</p>
+                            </div>
+                            <div class="final-message">
+                                <p><strong>You're the first girl I've ever made something this special for, and that
+                                        means everything.
+                                        Happy Birthday, Mi Pez! 🎂✨</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Elements -->
+        <div class="floating-hearts" id="floatingHearts"></div>
+
+        <!-- Share Options -->
+        <div class="share-container" id="shareContainer" style="display: none;">
+            <button class="share-btn" id="shareBtn">📤 Share This Card</button>
+            <button class="screenshot-btn" id="screenshotBtn">📸 Save Screenshot</button>
+        </div>
+
+        <!-- Hidden Easter Eggs -->
+        <div class="easter-egg" id="easterEgg" style="display: none;">
+            <p>🎊 You found the secret message! You're even more special than you know! 🎊</p>
+        </div>
+
+        <!-- Countdown (if birthday hasn't arrived) -->
+        <div class="countdown-container" id="countdownContainer" style="display: none;">
+            <h3>Countdown to Your Special Day! ⏰</h3>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Alert Popup -->
+        <div class="custom-alert" id="customAlert">
+            <span id="customAlertMessage"></span>
+            <button id="customAlertClose">Alright!</button>
+        </div>
+    </div>
+
+    <!-- Click Counter for Easter Eggs -->
+    <div class="click-counter" style="display: none;" id="clickCounter">0</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
